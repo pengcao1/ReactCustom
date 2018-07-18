@@ -27,11 +27,15 @@ export class HomeScreen extends React.Component{
                 <Text>Welcome to React Native!</Text>
                 <Text>To get started, edit App.js</Text>
                 <Button
-                    title="Go to Details"
+                    title="Details"
                     onPress={() => this.props.navigation.navigate('Details',{
-                        itemId: 86,
+                        itemId: 89,
                         otherParam: 'anything you want here',
                     })}
+                />
+                <Button
+                    title="Go to SetStateProcess"
+                    onPress={() => this.props.navigation.navigate('SetStateProcess')}
                 />
             </View>
         );
