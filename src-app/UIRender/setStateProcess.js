@@ -17,14 +17,14 @@ export class SetStateProcess extends React.Component{
         };
         this.updatePW = this.updatePW.bind(this);
     }
-    updateNum(newText){
+    updateNum(newText){ // commit 001
         this.setState((state) =>{
             return{
                 inputedNum:newText,
             };
         });
     }
-    updatePW(newText){
+    updatePW(newText){ //commit 002
         this.setState(() =>{
            return{
                inputedPW:newText,
@@ -40,7 +40,7 @@ export class SetStateProcess extends React.Component{
             <View style={styles.container}>
                 <TextInput style={styles.textInputStyle}
                            placeholder={'Pls input Phone number:'}
-                           onChangeText={(newText) => this.updateNum(newText)}
+                           onChangeText={(newText) => this.updateNum(newText)} // commit 001
                 />
                 <Text style={styles.textPromptStyle}>
                     Pls input Number
@@ -48,7 +48,7 @@ export class SetStateProcess extends React.Component{
                 <TextInput style={styles.textInputStyle}
                            paceholder={'Pls input password'}
                            secureTextEntry={true}
-                           onChangeText={this.updatePW}
+                           onChangeText={this.updatePW} //commit 002
                 />
                 <Text style={styles.bigTextPrompt} >
                     Confirm
