@@ -9,6 +9,28 @@ export class SetStateProcess extends React.Component{
     static navigationOptions = {
         title: 'SetStateProcess',
     };
+    constructor(props){
+        super(props);
+        this.state={
+            inputedNum:'',
+            inputedPW:''
+        };
+        this.updatePW = this.updatePW.bind(this);
+    }
+    updateNum(newText){
+        this.setState((state) =>{
+            return{
+                inputedNum:newText,
+            };
+        });
+    }
+    updatePW(newText){
+        this.setState(() =>{
+           return{
+               inputedPW:newText,
+           };
+        });
+    }
     render() {
         const { navigation } = this.props;
         const itemId = navigation.getParam('itemId','NO_ID_set');
@@ -18,15 +40,24 @@ export class SetStateProcess extends React.Component{
             <View style={styles.container}>
                 <TextInput style={styles.textInputStyle}
                            placeholder={'Pls input Phone number:'}
+                           onChangeText={(newText) => this.updateNum(newText)}
                 />
                 <Text style={styles.textPromptStyle}>
                     Pls input Number
                 </Text>
                 <TextInput style={styles.textInputStyle}
                            paceholder={'Pls input password'}
-                           secureTextEntry={true}/>
+                           secureTextEntry={true}
+                           onChangeText={this.updatePW}
+                />
                 <Text style={styles.bigTextPrompt} >
                     Confirm
+                </Text>
+                <Text>
+                    {this.state.inputedPW}
+                </Text>
+                <Text>
+                    {this.state.inputedNum}
                 </Text>
             </View>
         );
