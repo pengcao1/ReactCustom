@@ -11,6 +11,8 @@ export class SetStateProcess extends React.Component{
     };
     constructor(props){
         super(props);
+        this.myProperty1='test';
+        this.myProperty2=true;
         this.state={
             inputedNum:'',
             inputedPW:''
@@ -38,6 +40,7 @@ export class SetStateProcess extends React.Component{
                inputedPW:newText,
            };
         });
+
     }
     render() {
         const { navigation } = this.props;
@@ -48,7 +51,8 @@ export class SetStateProcess extends React.Component{
             <View style={styles.container}>
                 <TextInput style={styles.textInputStyle}
                            placeholder={'Pls input Phone number:'}
-                           onChangeText={(newText) => this.updateNum(newText)} // commit 001
+                           //onChangeText={(newText) => this.updateNum(newText)} // commit 001
+                           onChangeText={(newText) => this.setState({newText})} // commit 001
                 />
                 <Text style={styles.textPromptStyle}>
                     Pls input Number
