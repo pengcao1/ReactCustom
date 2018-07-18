@@ -19,10 +19,18 @@ export class SetStateProcess extends React.Component{
     }
     updateNum(newText){ // commit 001
         this.setState((state) =>{
+            for (var aName in state){
+                console.log(aName);
+                console.log(state[aName]);
+            }
             return{
                 inputedNum:newText,
+                aBrandnewStateVar:'setState return',
             };
-        });
+        },this.changeNumDown);
+    }
+    changeNumDown(){
+        console.log('React Native has update state succes');
     }
     updatePW(newText){ //commit 002
         this.setState(() =>{
