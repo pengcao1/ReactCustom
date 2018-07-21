@@ -8,7 +8,8 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, Button} from 'react-native';
-import { createStackNavigator } from 'react-navigation';
+import { NativeModules } from 'react-native';
+
 
 const instructions = Platform.select({
     ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -27,6 +28,7 @@ export class HomeScreen extends React.Component{
                 <Text>Welcome to React Native!</Text>
                 <Text>To get started, edit App.js</Text>
                 <Button
+                    style={styles.button}
                     title="Details"
                     onPress={() => this.props.navigation.navigate('Details',{
                         itemId: 89,
@@ -37,7 +39,23 @@ export class HomeScreen extends React.Component{
                     title="Go to SetStateProcess"
                     onPress={() => this.props.navigation.navigate('SetStateProcess')}
                 />
+                <Button
+                    title="Android Toast"
+                    onPress={this.dealAndroidOriginToast}
+                />
             </View>
         );
     }
+    dealAndroidOriginToast(){
+        console.log("dealAndroidOriginToast..");
+        NativeModules.ToastModuleCustom.showAndroid("From RN",NativeModules.ToastModuleCustom.SHORT);
+        NativeModules.CustomCameraInterface.callCamera();
+    }
 }
+
+const styles = StyleSheet.create({
+    button:{
+        flex:1,
+        justifyContent:'center',
+    }
+})
