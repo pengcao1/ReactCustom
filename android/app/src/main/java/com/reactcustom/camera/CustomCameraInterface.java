@@ -1,6 +1,7 @@
 package com.reactcustom.camera;
 
 
+import android.os.Environment;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -10,6 +11,10 @@ import com.facebook.react.bridge.ReactMethod;
 
 public class CustomCameraInterface extends ReactContextBaseJavaModule {
     private static final String TAG = CustomCameraInterface.class.getSimpleName();
+
+    private static final String IMAGE_PAHE = Environment.getExternalStorageDirectory().getAbsolutePath()+"/cp";
+    private static final String IMAGE_PREX = "cp";
+
     public CustomCameraInterface(ReactApplicationContext reactContext) {
         super(reactContext);
     }
