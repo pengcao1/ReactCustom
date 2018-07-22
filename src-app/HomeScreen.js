@@ -53,6 +53,10 @@ export class HomeScreen extends React.Component{
                     title="Android CallBack Test"
                     onPress={this.dealAndroidCallback}
                 />
+                <Button
+                    title="Android Promise async Test"
+                    onPress={this.dealFromAndroidOrigin}
+                />
 
             </View>
         );
@@ -75,7 +79,12 @@ export class HomeScreen extends React.Component{
             (moduleName,msg)=>{
                 console.log(moduleName+" --> "+msg);
             },
-            );
+        );
+
+    }
+    async dealFromAndroidOrigin(){
+        const{ result } = await RNAndroidCallbackInterface.usePromise();
+        console.log("call back from Origin Android:"+result);
     }
 }
 
