@@ -8,9 +8,9 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, Button} from 'react-native';
-import { NativeModules } from 'react-native';
 import CustomCameraInterface from './plugin/RNAndroidCamera';
 import ToastModuleInterface from './plugin/RNAndroidToast';
+import RNAndroidCallbackInterface from './plugin/RNCallBack';
 
 
 const instructions = Platform.select({
@@ -49,6 +49,10 @@ export class HomeScreen extends React.Component{
                     title="Android Camera"
                     onPress={this.dealAndroidCamera}
                 />
+                <Button
+                    title="Android CallBack Test"
+                    onPress={this.dealAndroidCallback}
+                />
 
             </View>
         );
@@ -61,6 +65,17 @@ export class HomeScreen extends React.Component{
     dealAndroidCamera(){
         console.log("dealAndroidCamera..");
         CustomCameraInterface.callCameraWithPromise();
+    }
+    dealAndroidCallback(){
+        //console.log("dealAndroidCallback");
+        RNAndroidCallbackInterface.tackPicture(
+            (msg)=>{
+                console.log(msg);
+            },
+            (moduleName,msg)=>{
+                console.log(moduleName+" --> "+msg);
+            },
+            );
     }
 }
 

@@ -7,7 +7,9 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
+import com.reactcustom.callback.RNAndroidCallback;
 import com.reactcustom.camera.CustomCamera;
+import com.reactcustom.toast.ToastExample;
 
 import java.util.Arrays;
 import java.util.List;
@@ -25,7 +27,8 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
               new ToastExample(),
-              new CustomCamera()
+              new CustomCamera(),
+              new RNAndroidCallback()
       );
     }
 
