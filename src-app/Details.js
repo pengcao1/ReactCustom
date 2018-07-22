@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, Button} from 'react-native';
-import { createStackNavigator } from 'react-navigation';
 
 
 export  class DetailsScreen extends React.Component {

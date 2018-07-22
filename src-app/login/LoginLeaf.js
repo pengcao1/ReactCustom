@@ -29,7 +29,6 @@ export class LoginLeaf extends React.Component {
                 inputedPW: newText,
             };
         });
-
     }
 
     render() {

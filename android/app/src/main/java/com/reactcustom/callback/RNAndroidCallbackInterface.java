@@ -40,7 +40,6 @@ public class RNAndroidCallbackInterface extends ReactContextBaseJavaModule imple
         LocalCalcTask task = new LocalCalcTask(this);
         task.execute();
     }
-
     @Override
     public void reponse(String msg) {
         WritableMap map = Arguments.createMap();

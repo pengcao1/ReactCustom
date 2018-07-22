@@ -47,7 +47,7 @@ export class HomeScreen extends React.Component{
                 />
                 <Button
                     title="Android Camera"
-                    onPress={this.dealAndroidCamera}
+                    onPress={()=> this.props.navigation.navigate('Camera')}
                 />
                 <Button
                     title="Android CallBack Test"
