@@ -9,6 +9,8 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, Button} from 'react-native';
 import { NativeModules } from 'react-native';
+import CustomCameraInterface from './plugin/RNAndroidCamera';
+import ToastModuleCustom from './plugin/RNAndroidToast';
 
 
 const instructions = Platform.select({
@@ -40,16 +42,25 @@ export class HomeScreen extends React.Component{
                     onPress={() => this.props.navigation.navigate('SetStateProcess')}
                 />
                 <Button
-                    title="Android Toast"
+                    title="Android Camera Test"
                     onPress={this.dealAndroidOriginToast}
                 />
+                <Button
+                    title="Android Camera"
+                    onPress={this.dealAndroidCamera}
+                />
+
             </View>
         );
     }
     dealAndroidOriginToast(){
         console.log("dealAndroidOriginToast..");
-        NativeModules.ToastModuleCustom.showAndroid("From RN",NativeModules.ToastModuleCustom.SHORT);
-        NativeModules.CustomCameraInterface.callCamera();
+        ToastModuleCustom.showAndroid("From RN",NativeModules.ToastModuleCustom.SHORT);
+        CustomCameraInterface.callCamera();
+    }
+    dealAndroidCamera(){
+        console.log("dealAndroidCamera..");
+        CustomCameraInterface.callCameraWithPromise();
     }
 }
 
