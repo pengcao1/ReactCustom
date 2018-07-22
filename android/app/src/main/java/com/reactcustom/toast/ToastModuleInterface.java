@@ -1,4 +1,4 @@
-package com.reactcustom;
+package com.reactcustom.toast;
 
 import android.widget.Toast;
 
@@ -11,17 +11,17 @@ import java.util.Map;
 
 import javax.annotation.Nullable;
 
-public class ToastModuleCustom extends ReactContextBaseJavaModule {
+public class ToastModuleInterface extends ReactContextBaseJavaModule {
     private static final String DURATION_SHORT_KEY = "SHORT";
     private static final String DURATION_LONG_KEY = "LONG";
 
-    public ToastModuleCustom(ReactApplicationContext reactContext) {
+    public ToastModuleInterface(ReactApplicationContext reactContext) {
         super(reactContext);
     }
 
     @Override
     public String getName() {
-        return "ToastModuleCustom";
+        return ToastModuleInterface.class.getSimpleName();
     }
 
     @Nullable

@@ -10,7 +10,7 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, Button} from 'react-native';
 import { NativeModules } from 'react-native';
 import CustomCameraInterface from './plugin/RNAndroidCamera';
-import ToastModuleCustom from './plugin/RNAndroidToast';
+import ToastModuleInterface from './plugin/RNAndroidToast';
 
 
 const instructions = Platform.select({
@@ -55,7 +55,7 @@ export class HomeScreen extends React.Component{
     }
     dealAndroidOriginToast(){
         console.log("dealAndroidOriginToast..");
-        ToastModuleCustom.showAndroid("From RN",NativeModules.ToastModuleCustom.SHORT);
+        ToastModuleInterface.showAndroid("From RN",ToastModuleInterface.SHORT);
         CustomCameraInterface.callCamera();
     }
     dealAndroidCamera(){
