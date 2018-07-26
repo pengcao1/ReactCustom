@@ -20,7 +20,7 @@ export  class CameraInfoScreen extends React.Component{
             >
                 <Button style={styles.takeBtn}
                         title="This is Camera page"
-                        onPress={()=>this.dealPickImage()}
+                        onPress={()=>this.dealPickImagePromise()}
                 />
                 <Image
                     style={{width: 196, height: 100}}
@@ -38,6 +38,11 @@ export  class CameraInfoScreen extends React.Component{
             //     ()=>{
             //         console.log(this.state.pickerImageUri);
             //     })
+        });
+    }
+    async dealPickImagePromise(){
+        this.setState({
+            pickerImageUri:await CustomCameraInterface.pickImageWithPromise()
         });
     }
 }
